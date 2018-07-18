@@ -11,14 +11,15 @@ const dialogflowFirebaseFulfillment = (request, response) => {
   const req = request,
     params = request.body.queryResult.parameters,
     res = response,
-    action = request.body.queryResult.action;
+    action = request.body.queryResult.action,
+    dt = new Date();
 
   let say = 'Sorry, I don\'t know how to answer that yet';
 
   switch(action) {
       case('what.experience'):
           let skill = data.skill[params.skill],
-            year = Date.getYear(),
+            year = dt.getYear(),
             time = year - skill.date + 1,
             phrase = i18n[action].say[Math.floor(Math.random() * Math.floor(i18n[action].say))],
             replace = {
