@@ -1,5 +1,10 @@
 {
   "what.experience": {
-    "say": ["Goncalo has <time> year<plural> of experience in <skill>"]
+    "true": ["Goncalo has <time> year<plural> of experience in <skill>"],
+    "false": ["He's not had the chance to do <skill>"]
+  },
+  "check.experience": {
+    "true": ["Yes, he has <time> year<plural> of experience in <skill>"],
+    "false": ["No, he's not had the chance to do <skill>"]
   }
 }
