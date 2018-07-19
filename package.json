@@ -10,7 +10,7 @@
     "node": "~6.0"
   },
   "scripts": {
-    "start": "clear && node index.js",
+    "start": "node index.js",
     "ngrok": "./ngrok http 3000"
   },
   "dependencies": {
