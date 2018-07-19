@@ -6,5 +6,19 @@
   "check.experience": {
     "true": ["Yes, he has <time> year<plural> of experience in <skill>"],
     "false": ["No, he's not had the chance to do <skill>"]
+  },
+  "get.cv": {
+    "true": ["Sure, you can see it <a href='/cv'>here</a>"]
+  },
+  "input.welcome": {
+    "true": [
+      "Hi! How are you doing?",
+      "Hello! How can I help you?",
+      "Good day! What can I do for you today?",
+      "Greetings! How can I assist?"
+    ]
+  },
+  "what.project": {
+    "true": ["Sure, here's <a href='<link>'><project></a>"]
   }
 }

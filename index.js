@@ -6,6 +6,7 @@ const express = require('express'),
   ex = express(),
   data = require('./data.json'),
   i18n = require('./i18n.json'),
+  suggestions = require('./suggestions.json'),
   tools = require('./tools.js');
 
 const dialogflowFirebaseFulfillment = (request, response) => {
@@ -15,14 +16,15 @@ const dialogflowFirebaseFulfillment = (request, response) => {
     action = request.body.queryResult.action,
     dt = new Date();
 
-  let say = 'Sorry, I don\'t know how to answer that yet';
+  let say = 'Sorry, I don\'t know how to answer that yet',
+    sugg = [];
 
   if (action === 'what.experience' || action === 'check.experience') {
     let skill = data.skill[params.skill] || false,
       hasSkill = Boolean(skill).toString(),
       year = dt.getFullYear(),
       time = (year - parseInt(skill.date)) + 1,
-      phrase = i18n[action][hasSkill][Math.floor(Math.random() * i18n[action][hasSkill].length)],
+      phrase = tools.getRand(i18n[action][hasSkill]),
       replace = {
         time: time,
         plural: time > 1 ? 's' : '',
@@ -32,12 +34,34 @@ const dialogflowFirebaseFulfillment = (request, response) => {
       input: phrase,
       repl: replace
     });
+    sugg = [
+      'Tell me more'
+    ];
+  } else if (action === 'what.project') {
+    let phrase = tools.getRand(i18n[action].true),
+      replace = {
+        project: params.project,
+        link: tools.toSlug(`/portfolio/${params.project}`)
+      };
+    say = tools.stringReplace({
+      input: phrase,
+      repl: replace
+    });
+    sugg = [
+      'Tell me more'
+    ];
+  } else {
+    say = tools.getRand(i18n[action].true);
+    if (suggestions[action]) {
+      sugg = tools.getRand(suggestions[action], 3);
+    }
   }
 
 
   //direct intents to proper functions
   res.json(tools.botSay({
-    input: say
+    input: say,
+    suggestions: sugg
   }));
 };
 ex.use(bodyParser.json());

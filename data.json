@@ -12,6 +12,10 @@
       "date": "2011",
       "description": "UX Design or User Experience Design is the application of certain user-centred design practices, a highly contextual design mentality, and use of certain methods and techniques. These are applied through process management to produce cohesive, predictable, and desirable effects in a specific person, or persona (archetype comprised of target audience habits and characteristics). All so that the effects produced meet the user’s own goals and measures of success and enjoyment, as well as the objectives of the providing organization."
     },
+    "UI": {
+      "date": "2010",
+      "description": "User interface (UI) design is the process of making interfaces in software or computerized devices with a focus on looks or style. Designers aim to create designs users will find easy to use and pleasurable. UI design typically refers to graphical user interfaces but also includes others, such as voice-controlled ones."
+    },
     "Mobile": {
       "date": "2012",
       "description": "Mobile user experience (UX) design refers to the design of positive experiences during the use of mobile devices and wearables, and applications or services running on such devices. The mobile market, like the contexts in which mobiles are used, places unique requirements on the design of the user experience. Mobile UX design focuses strongly on efficiency and discoverability."
@@ -36,5 +40,8 @@
       "date": "2005",
       "description": "The expression or application of human creative skill and imagination, typically in a visual form such as painting or sculpture, producing works to be appreciated primarily for their beauty or emotional power."
     }
-  }
+  },
+  "what.project": [
+    "Sure, here's <a href='<link>'><project></a>"
+  ]
 }
